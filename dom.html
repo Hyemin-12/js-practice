@@ -6,6 +6,7 @@
 	function makePersonDiv(name, age) {
 		let div = document.createElement('div');
 
+/*
 		let b1 = document.createElement('b');
 		let text1 = document.createTextNode(`이름 : ${name}`);
 		b1.append(text1);
@@ -18,7 +19,8 @@
 		let text2 = document.createTextNode(`나이 :  ${age}`);
 		b2.append(text2);
 		div.appendChild(b2);
-
+*/
+		div.innerHTML = `<b>이름 : ${name}</b> <br> <b>나이 : ${age}</b>`
 		return div;
 	}
 
