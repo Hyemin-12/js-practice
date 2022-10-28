@@ -3,10 +3,48 @@
 <script type="text/javascript">
 	document.body.innerHTML = "";
 
+	function makePersonDiv(name, age) {
+		let div = document.createElement('div');
+
+		let b1 = document.createElement('b');
+		let text1 = document.createTextNode(`이름 : ${name}`);
+		b1.append(text1);
+		div.appendChild(b1);
+
+		let br = document.createElement('br');
+		div.appendChild(br);
+
+		let b2 = document.createElement('b');
+		let text2 = document.createTextNode(`나이 :  ${age}`);
+		b2.append(text2);
+		div.appendChild(b2);
+
+		return div;
+	}
+
+	document.body.append(makePersonDiv("John", 20));
+
+	// let ul = document.createElement('ul');
+	// ul.setAttribute('id', 'menu');
+
+	// for(let i = 1; i <= 3; i++) {
+	// 	let li = document.createElement('li');
+	// 	let a = document.createElement('a');
+	// 	a.setAttribute('href', `/${i}.html`);
+	// 	let text = document.createTextNode(i);
+	// 	a.append(text);
+	// 	li.appendChild(a);
+	// 	ul.appendChild(li);
+	// }
+
+	// document.body.append(ul);
+
+	/*
 	let a = document.createElement('a');
 	a.setAttribute('href', 'http://www.naver.com');
 	let text = document.createTextNode('네이버로 이동');
 	a.append(text);
 
 	document.body.append(a);
+	*/
 </script>
