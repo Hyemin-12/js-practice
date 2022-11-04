@@ -1,0 +1,61 @@
+<body>
+	<div id = "posts"></div>
+</body>
+<script>
+// let posts = document.getElementById("posts");
+// let posts = document.querySelectorAll("#posts")[0];
+let posts = document.querySelector("#posts");
+
+const makePost = (title, content) => {
+	let div = document.createElement('div');
+
+	div.innerHTML = `
+		<h1>${title}</h1>
+		<p>${content}</p>
+		<p>
+			${new Date().getHours().toString().padStart(2, 0)}:
+			${new Date().getMinutes().toString().padStart(2, 0)}:
+			${new Date().getSeconds().toString().padStart(2, 0)}
+		</p>
+	`
+	let button = document.createElement('button');
+	button.textContent = "삭제"
+	div.append(button);
+
+	button.onclick = () => {
+		button.parentElement.remove();
+	}
+
+	return div;
+}
+
+// for (let i = 1; i <= 20; i++){
+// 	posts.append(makePost(`글 제목${i}`, `글 내용${i}`));
+// }
+
+const makePostEditor = () => {
+	let div = document.createElement('div');
+	div.setAttribute('id', 'editor')
+
+	div.innerHTML = `
+		<span>글 제목</span>
+		<input type="text" id="title"/>
+		<br/>
+		<span>글 내용</span>
+		<input type="text" id="content"/>
+		<br/>
+		`;
+
+	let button = document.createElement('button')
+	button.textContent = "글 추가";
+	div.append(button);
+
+	button.onclick = () => {
+		posts.append(makePost(div.children[1].value, div.children[4].value));
+	}
+
+	return div;
+}
+
+document.body.prepend(makePostEditor());
+</script>
