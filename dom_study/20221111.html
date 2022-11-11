@@ -1,0 +1,38 @@
+<body>
+	<div>
+		<input id="option_text" type="text" />
+		<button id="add_option">추가</button>
+	</div>
+	<div id="select-holder">
+	</div>
+</body>
+<script>
+const makeSelect = (arr) => {
+	let select = document.createElement("select");
+
+	for(let item of arr) {
+		let option = document.createElement("option");
+		option.textContent = item;
+		option.setAttribute("value", item);
+		select.append(option);
+	}
+
+	return select;
+}
+
+const addOptionToSelect = (select, item) => {
+	let option = document.createElement("option");
+	option.textContent = item;
+	option.setAttribute("value", item);
+	select.append(option);
+}
+
+let options = ["apple", "banana", "grape"];
+let s = makeSelect(options);
+document.getElementById("select-holder").append(s);
+
+document.getElementById("add_option").onclick = () => {
+	addOptionToSelect(s, document.getElementById("option_text").value);
+	document.getElementById("option_text").value = "";
+}
+</script>
