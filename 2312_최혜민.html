@@ -37,11 +37,11 @@ function Employee(name, position, salary) {
 }
 
 let e1 = new Employee("김철수", "junior", 2000)
-console.log( e1.name, e1.position, e1.salary ); // 김철수 junior
+console.log( e1.name, e1.position, e1.salary ); // 김철수 junior 2000
 e1.showAnnualSalary(); // (콘솔창으로) 24000 출력
 console.log( e1.isSenior() ); // false 출력
 let e2 = new Employee("이영희", "senior", 3000)
-console.log( e2.name, e2.position, e2.salary ); // 이영희 senior
+console.log( e2.name, e2.position, e2.salary ); // 이영희 senior 3000
 e2.showAnnualSalary(); // senior이므로, 36000 * 1.5인 54000 출력
 console.log( e2.isSenior() ); // true 출력
 
