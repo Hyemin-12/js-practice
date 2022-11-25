@@ -2,15 +2,16 @@
 // 2312 최혜민
 // Q1
 const transform = (arr) => {
-    res = [];
-    for (let i = 0; i < arr.length; i++) {
-        switch(arr[i]/10) {
-            case 10: res[i] = "A"; break;
-            case 9: res[i] = "A"; break;
-            case 8: res[i] = "B"; break;
-            case 7: res[i] = "C"; break;
-            case 6: res[i] = "D"; break;
-            default: res[i] = "E"; break;
+    let res = [];
+
+    for (score of arr) {
+        switch(score / 10) {
+            case 10: res.push('A'); break;
+            case 9: res.push('A'); break;
+            case 8: res.push('B'); break;
+            case 7: res.push('C'); break;
+            case 6: res.push('D'); break;
+            default: res.push('E'); break;
         }
     }
 
@@ -25,15 +26,12 @@ function Employee(name, position, salary) {
     this.name = name;
     this.position = position;
     this.salary = salary;
-
-    this.isSenior = () => {
-        if (this.position === "senior") return true;
-        else return false;
-    }
-    this.showAnnualSalary = () => {
-        if (this.isSenior()) console.log(salary * 12 * 1.5);
-        else console.log(salary * 12);
-    }
+}
+Employee.prototype.isSenior = function() {
+    return this.position === "senior";
+}
+Employee.prototype.showAnnualSalary = function() {
+    console.log(this.salary * 12 * (this.isSenior() ? 1.5 : 1));
 }
 
 let e1 = new Employee("김철수", "junior", 2000)
@@ -49,13 +47,9 @@ console.log( e2.isSenior() ); // true 출력
 function Range(from, to) {
     this.from = from;
     this.to = to;
-
-    this.in = (num) => {
-        for(let i = this.from; i <= this.to; i++) {
-            if (num === i) return true;
-        }
-        return false;
-    }
+}
+Range.prototype.in = function(num) {
+    return num >= this.from && num <= this.to;
 }
 
 // 1~10까지 범위 정보를 지닌 범위 객체 생성
