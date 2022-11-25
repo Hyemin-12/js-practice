@@ -1,0 +1,69 @@
+<script>
+// 2312 최혜민
+// Q1
+const transform = (arr) => {
+    res = [];
+    for (let i = 0; i < arr.length; i++) {
+        switch(arr[i]/10) {
+            case 10: res[i] = "A"; break;
+            case 9: res[i] = "A"; break;
+            case 8: res[i] = "B"; break;
+            case 7: res[i] = "C"; break;
+            case 6: res[i] = "D"; break;
+            default: res[i] = "E"; break;
+        }
+    }
+
+    return res;
+}
+
+let arr = transform([100, 90, 80, 70, 60, 50, 30]);
+console.log(arr);
+
+// Q2
+function Employee(name, position, salary) {
+    this.name = name;
+    this.position = position;
+    this.salary = salary;
+
+    this.isSenior = () => {
+        if (this.position === "senior") return true;
+        else return false;
+    }
+    this.showAnnualSalary = () => {
+        if (this.isSenior()) console.log(salary * 12 * 1.5);
+        else console.log(salary * 12);
+    }
+}
+
+let e1 = new Employee("김철수", "junior", 2000)
+console.log( e1.name, e1.position, e1.salary ); // 김철수 junior
+e1.showAnnualSalary(); // (콘솔창으로) 24000 출력
+console.log( e1.isSenior() ); // false 출력
+let e2 = new Employee("이영희", "senior", 3000)
+console.log( e2.name, e2.position, e2.salary ); // 이영희 senior
+e2.showAnnualSalary(); // senior이므로, 36000 * 1.5인 54000 출력
+console.log( e2.isSenior() ); // true 출력
+
+// Q3
+function Range(from, to) {
+    this.from = from;
+    this.to = to;
+
+    this.in = (num) => {
+        for(let i = this.from; i <= this.to; i++) {
+            if (num === i) return true;
+        }
+        return false;
+    }
+}
+
+// 1~10까지 범위 정보를 지닌 범위 객체 생성
+let range = new Range(1, 10);
+// in 메서드로 범위 안에 숫자가 포함되는지 확인하기
+console.log( range.in(0) ); // false
+console.log( range.in(1) ); // true
+console.log( range.in(5) ); // true
+console.log( range.in(10) ); // true
+console.log( range.in(11) ); // false
+</script>
